@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -50,7 +51,11 @@ const Footer = () => (
       <AntDesign name="hearto" size={25} style={styles.footerIcon} />
       <Ionicons name="chatbubble-outline" size={25} style={styles.footerIcon} />
       <Feather name="send" size={25} style={styles.footerIcon} />
-      <Feather name="bookmark" size={25} />
+      <Feather
+        name="bookmark"
+        size={25}
+        style={[styles.footerIcon, {marginLeft: 'auto'}]}
+      />
     </View>
     <Likes />
     <PostDescription />
