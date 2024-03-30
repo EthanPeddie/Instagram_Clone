@@ -1,12 +1,18 @@
-import {ScrollView, StyleSheet} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import React from 'react';
+
 import FeedPost from './src/components/FeedPost';
+import posts from './src/assets/data/posts.json';
 
 const App = () => {
   return (
-    <ScrollView style={styles.container}>
-      <FeedPost />
-    </ScrollView>
+    <View style={styles.container}>
+      <FlatList
+        data={posts}
+        renderItem={({item}) => <FeedPost post={item} />}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
   );
 };
 

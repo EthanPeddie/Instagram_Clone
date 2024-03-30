@@ -5,18 +5,25 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {styles} from './styles';
-const FeedPost = () => {
+import Comment from '../Comment';
+import {IPost} from '../../types/types';
+
+export interface Props {
+  post: IPost;
+}
+const FeedPost = ({post}: Props) => {
   return (
     <View>
       <View style={styles.headerContainer}>
         <Image
           style={styles.headerImage}
           source={{
-            uri: 'https://metricool.com/wp-content/uploads/Screen-Shot-2023-06-28-at-2.21.12-PM.png',
+            uri: post.user.image,
           }}
         />
-        <Text style={styles.headerText}>Kaung Myat Thu</Text>
+        <Text style={styles.headerText}>{post.user.username}</Text>
         <View style={styles.headerIcon}>
           <Entypo name="dots-three-horizontal" size={20} />
         </View>
@@ -25,7 +32,7 @@ const FeedPost = () => {
         <Image
           style={styles.contentImage}
           source={{
-            uri: 'https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2023/09/instagram-image-size.jpg',
+            uri: post.image,
           }}
         />
       </View>
@@ -46,27 +53,21 @@ const FeedPost = () => {
         </View>
         <View>
           <Text style={styles.text}>
-            Likes by <Text style={styles.bold}>Ethan Peddie</Text> and{' '}
-            <Text style={styles.bold}>123 others</Text>
+            Likes by <Text style={styles.bold}>Senit Seint</Text> and{' '}
+            <Text style={styles.bold}>{post.nofLikes} others</Text>
           </Text>
         </View>
         <Text style={styles.text}>
-          <Text style={styles.bold}>Kaung Myat Thu</Text> Lorem ipsum dolor, sit
-          amet consectetur adipisicing elit. Totam eum temporibus, accusamus
-          ipsa ducimus adipisci numquam id voluptatibus et veniam cupiditate
-          quasi aliquam quidem ex dolorum animi porro ipsam fugiat.
+          <Text style={styles.bold}>{post.user.username}</Text>{' '}
+          {post.description}
         </Text>
         <View>
-          <Text>View All 18 comments</Text>
-          <View style={styles.comment}>
-            <Text style={styles.commentText}>
-              <Text style={styles.bold}>Shwe War</Text> Lorem ipsum dolor sit
-              amet consectetur adipisicing elit.
-            </Text>
-            <AntDesign name="hearto" size={16} />
-          </View>
+          <Text>View All {post.nofComments} comments</Text>
+          {post.comments.map(comment => (
+            <Comment key={comment.id} comment={comment} />
+          ))}
         </View>
-        <Text>20 January 2024</Text>
+        <Text>{post.createdAt}</Text>
       </View>
     </View>
   );
