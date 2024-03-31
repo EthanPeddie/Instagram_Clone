@@ -34,7 +34,6 @@ export const styles = StyleSheet.create({
   },
   footerIcon: {
     marginHorizontal: 5,
-    color: colors.black,
   },
   text: {
     color: colors.black,
