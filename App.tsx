@@ -1,12 +1,14 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
+import CommentsScreen from './src/screens/CommentsScreen';
 
-import HomeScreen from './src/screens/HomeScreen/HomeScreen';
+// import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <HomeScreen />
+      {/* <HomeScreen /> */}
+      <CommentsScreen />
     </View>
   );
 };
