@@ -11,6 +11,7 @@ import Comment from '../Comment';
 import {IPost} from '../../types/types';
 import colors from '../../theme/colors';
 import DoublePressable from '../DoublePressable';
+import Carousel from '../Carousel';
 
 export interface Props {
   post: IPost;
@@ -25,6 +26,20 @@ const FeedPost = ({post}: Props) => {
   const handleLiked = () => {
     setIsLikes(v => !v);
   };
+
+  let content = null;
+  if (post.image) {
+    content = (
+      <Image
+        style={styles.contentImage}
+        source={{
+          uri: post.image,
+        }}
+      />
+    );
+  } else if (post.images) {
+    content = <Carousel images={post.images} />;
+  }
   return (
     <View>
       <View style={styles.headerContainer}>
@@ -39,14 +54,7 @@ const FeedPost = ({post}: Props) => {
           <Entypo name="dots-three-horizontal" size={20} />
         </View>
       </View>
-      <DoublePressable onDoublePress={handleLiked}>
-        <Image
-          style={styles.contentImage}
-          source={{
-            uri: post.image,
-          }}
-        />
-      </DoublePressable>
+      <DoublePressable onDoublePress={handleLiked}>{content}</DoublePressable>
       <View style={styles.footerContainer}>
         <View style={styles.footerIcons}>
           <Pressable onPress={handleLiked}>
