@@ -4,10 +4,9 @@
     "createdAt": "19 December 2021",
     "images": [
       "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2023/09/instagram-image-size.jpg",
-      "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/2.jpg",
-      "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2023/09/instagram-image-size.jpg",
-      "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/3.jpg",
-      "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2023/09/instagram-image-size.jpg"
+      "https://media.istockphoto.com/id/618066222/photo/camera-capturing-a-forest.jpg?s=612x612&w=0&k=20&c=Mqr3fFI2QPY09_bu3GyRYJvcdwBO2qeHPT88GFsLTS4=",
+      "https://shop.panasonic.com/cdn/shop/collections/gseries_1500x600_b33ccac2-ff2d-493b-a359-41f5852b0be5.jpg?v=1692041859&width=2048",
+      "https://aprendacftv.com/wp-content/uploads/2019/09/How-Far-Can-A-Security-Camera-See.jpg"
     ],
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?",
     "user": {
@@ -39,12 +38,12 @@
   {
     "id": "2",
     "createdAt": "19 December 2021",
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/2.jpg",
+    "image": "https://aprendacftv.com/wp-content/uploads/2019/09/How-Far-Can-A-Security-Camera-See.jpg",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?",
     "user": {
       "id": "u1",
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/2.jpg",
-      "username": "vadimnotjustdev"
+      "image": "https://wallpapers.com/images/featured/john-wick-pictures-fkurzl5x5t5vakvg.jpg",
+      "username": "John Wick"
     },
     "nofComments": 11,
     "nofLikes": 34,
@@ -54,7 +53,7 @@
         "comment": "Lorem ipsum dolor sit amet consectetur adipisicing elit. H",
         "user": {
           "id": "u1",
-          "username": "vadimnotjustdev"
+          "username": "Ethan Peddie"
         }
       },
       {
@@ -62,7 +61,7 @@
         "comment": "Lorem ipsum dolor sit amet consectetur adipisicing elit. H",
         "user": {
           "id": "u1",
-          "username": "vadimnotjustdev"
+          "username": "Seint Seint"
         }
       }
     ]
@@ -70,12 +69,12 @@
   {
     "id": "3",
     "createdAt": "19 December 2021",
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/3.jpg",
+    "video": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?",
     "user": {
       "id": "u1",
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/3.jpg",
-      "username": "vadimnotjustdev"
+      "image": "https://wallpapers.com/images/featured/john-wick-pictures-fkurzl5x5t5vakvg.jpg",
+      "username": "John Wick"
     },
     "nofComments": 11,
     "nofLikes": 34,
@@ -85,7 +84,7 @@
         "comment": "Lorem ipsum dolor sit amet consectetur adipisicing elit. H",
         "user": {
           "id": "u1",
-          "username": "vadimnotjustdev"
+          "username": "Ethan Peddie"
         }
       },
       {
@@ -93,38 +92,7 @@
         "comment": "Lorem ipsum dolor sit amet consectetur adipisicing elit. H",
         "user": {
           "id": "u1",
-          "username": "vadimnotjustdev"
-        }
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "createdAt": "19 December 2021",
-    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/4.jpg",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?",
-    "user": {
-      "id": "u1",
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/4.jpg",
-      "username": "vadimnotjustdev"
-    },
-    "nofComments": 11,
-    "nofLikes": 34,
-    "comments": [
-      {
-        "id": "1",
-        "comment": "Lorem ipsum dolor sit amet consectetur adipisicing elit. H",
-        "user": {
-          "id": "u1",
-          "username": "vadimnotjustdev"
-        }
-      },
-      {
-        "id": "2",
-        "comment": "Lorem ipsum dolor sit amet consectetur adipisicing elit. H",
-        "user": {
-          "id": "u1",
-          "username": "vadimnotjustdev"
+          "username": "Seint Seint"
         }
       }
     ]

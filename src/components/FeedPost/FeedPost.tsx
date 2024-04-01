@@ -12,11 +12,13 @@ import {IPost} from '../../types/types';
 import colors from '../../theme/colors';
 import DoublePressable from '../DoublePressable';
 import Carousel from '../Carousel';
+import VideoPlayer from '../VideoPlayer';
 
 export interface Props {
   post: IPost;
+  isVisible: boolean;
 }
-const FeedPost = ({post}: Props) => {
+const FeedPost = ({post, isVisible}: Props) => {
   const [isDescriptionExpaneded, setIsDescriptionExpaneded] = useState(false);
   const [isLikes, setIsLikes] = useState(false);
 
@@ -39,6 +41,8 @@ const FeedPost = ({post}: Props) => {
     );
   } else if (post.images) {
     content = <Carousel images={post.images} />;
+  } else if (post.video) {
+    content = <VideoPlayer uri={post.video} paused={!isVisible} />;
   }
   return (
     <View>
