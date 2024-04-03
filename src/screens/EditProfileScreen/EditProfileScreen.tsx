@@ -3,26 +3,71 @@ import React from 'react';
 import users from '../../assets/data/users.json';
 import font from '../../theme/font';
 import colors from '../../theme/colors';
+import {Control, Controller, SubmitHandler, useForm} from 'react-hook-form';
+
+type FormValues = {
+  name: string;
+  username: string;
+  website: string;
+  bio: string;
+};
 
 interface Props {
   label: string;
   multiline?: boolean | undefined;
+  control: Control<FormValues>;
+  name: string;
+  rules?: object;
 }
 
-const CustomInput = ({label, multiline}: Props) => {
+const ERROR_COLOR = colors.error;
+
+const CustomInput = ({label, multiline, control, name, rules}: Props) => {
   return (
-    <View style={styles.inputContainer}>
-      <Text style={styles.inputLabel}>{label}</Text>
-      <TextInput
-        placeholder={label}
-        style={styles.inputField}
-        multiline={multiline}
-      />
-    </View>
+    <Controller
+      control={control}
+      name={name as keyof FormValues}
+      rules={rules}
+      render={({field: {onChange, onBlur, value}, fieldState: {error}}) => {
+        return (
+          <View style={styles.inputContainer}>
+            <Text style={styles.inputLabel}>{label}</Text>
+            <View style={styles.inputFieldContainer}>
+              <TextInput
+                placeholder={label}
+                style={[
+                  styles.inputField,
+                  {borderBottomColor: error ? ERROR_COLOR : colors.border},
+                ]}
+                multiline={multiline}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+              {error && (
+                <Text style={{color: ERROR_COLOR}}>{error.message}</Text>
+              )}
+            </View>
+          </View>
+        );
+      }}
+    />
   );
 };
 
 const EditProfileScreen = () => {
+  const {control, handleSubmit} = useForm<FormValues>({
+    defaultValues: {
+      name: users.name,
+      username: users.username,
+      // website: users.website,
+      bio: users.bio,
+    },
+  });
+  const onSubmit: SubmitHandler<FormValues> = data => console.log(data);
+  const Regex_URL =
+    /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
+
   return (
     <View style={styles.container}>
       <View style={styles.profileImageContainer}>
@@ -30,12 +75,56 @@ const EditProfileScreen = () => {
         <Text style={styles.profileText}>Change Profile Image</Text>
       </View>
       <View>
-        <CustomInput label="Name" />
-        <CustomInput label="Username" />
-        <CustomInput label="Website" />
-        <CustomInput label="Bio" multiline />
+        <CustomInput
+          name="name"
+          label="Name"
+          control={control}
+          rules={{
+            required: 'Name is required',
+            minLength: {
+              value: 3,
+              message: 'Name should be more than 3 characters',
+            },
+          }}
+        />
+        <CustomInput
+          name="username"
+          label="Username"
+          control={control}
+          rules={{
+            required: 'Username is required',
+            minLength: {
+              value: 3,
+              message: 'Username should be more than 3 characters',
+            },
+          }}
+        />
+        <CustomInput
+          name="website"
+          label="Website"
+          control={control}
+          rules={{
+            required: 'Website URL is required',
+            pattern: {value: Regex_URL, message: 'Invalid URL'},
+          }}
+        />
+        <CustomInput
+          name="bio"
+          label="Bio"
+          multiline
+          control={control}
+          rules={{
+            required: 'Bio is required',
+            maxLength: {
+              value: 200,
+              message: 'Bio should be less than 200 characters',
+            },
+          }}
+        />
         <View style={styles.submitButtonContainer}>
-          <Text style={styles.profileText}>Submit</Text>
+          <Text onPress={handleSubmit(onSubmit)} style={styles.profileText}>
+            Submit
+          </Text>
         </View>
       </View>
     </View>
@@ -67,10 +156,13 @@ const styles = StyleSheet.create({
   inputLabel: {
     width: 75,
   },
+  inputFieldContainer: {
+    flexDirection: 'column',
+    flex: 1,
+  },
   inputField: {
     borderBottomWidth: 1,
-    borderColor: colors.border,
-    flex: 1,
+    borderBottomColor: colors.border,
   },
   submitButtonContainer: {
     alignItems: 'center',
