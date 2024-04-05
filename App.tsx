@@ -1,28 +1,8 @@
-import {StyleSheet, View} from 'react-native';
 import React from 'react';
-// import ProfileScreen from './src/screens/ProfileScreen';
-// import EditProfileScreen from './src/screens/EditProfileScreen';
-import PostUploadScreen from './src/screens/PostUploadScreen';
-// import CommentsScreen from './src/screens/CommentsScreen';
-
-// import HomeScreen from './src/screens/HomeScreen/HomeScreen';
+import Navigation from './src/navigation';
 
 const App = () => {
-  return (
-    <View style={styles.container}>
-      {/* <HomeScreen /> */}
-      {/* <CommentsScreen /> */}
-      {/* <ProfileScreen /> */}
-      {/* <EditProfileScreen /> */}
-      <PostUploadScreen />
-    </View>
-  );
+  return <Navigation />;
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
