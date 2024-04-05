@@ -27,8 +27,11 @@
 	<key>NSAppTransportSecurity</key>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need to permission to change your avatar</string>
-	
-	<dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow $(PRODUCT_NAME) to use the camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow $(PRODUCT_NAME) to use the microphone</string>
+		<dict>
 	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
