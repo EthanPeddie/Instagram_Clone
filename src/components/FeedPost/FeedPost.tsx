@@ -5,6 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useNavigation} from '@react-navigation/native';
 
 import {styles} from './styles';
 import Comment from '../Comment';
@@ -44,16 +45,23 @@ const FeedPost = ({post, isVisible}: Props) => {
   } else if (post.video) {
     content = <VideoPlayer uri={post.video} paused={!isVisible} />;
   }
+  const navigation = useNavigation();
+
+  const navigateToUser = () => {
+    navigation.navigate('UserProfile', {userId: post.user?.id});
+  };
   return (
     <View>
       <View style={styles.headerContainer}>
         <Image
           style={styles.headerImage}
           source={{
-            uri: post.user.image,
+            uri: post.user?.image,
           }}
         />
-        <Text style={styles.headerText}>{post.user.username}</Text>
+        <Text style={styles.headerText} onPress={navigateToUser}>
+          {post.user?.username}
+        </Text>
         <View style={styles.headerIcon}>
           <Entypo name="dots-three-horizontal" size={20} />
         </View>
@@ -97,7 +105,7 @@ const FeedPost = ({post, isVisible}: Props) => {
         <Text
           style={[styles.text, {marginTop: 5}]}
           numberOfLines={isDescriptionExpaneded ? 0 : 3}>
-          <Text style={styles.bold}>{post.user.username}</Text>{' '}
+          <Text style={styles.bold}>{post.user?.username}</Text>{' '}
           {post.description}
         </Text>
         <Text onPress={handleExpand}>
@@ -106,8 +114,12 @@ const FeedPost = ({post, isVisible}: Props) => {
 
         <View style={{marginTop: 5}}>
           <Text>View All {post.nofComments} comments</Text>
-          {post.comments.map(comment => (
-            <Comment key={comment.id} comment={comment} />
+          {post.comments?.map(comment => (
+            <Comment
+              key={comment.id}
+              comment={comment}
+              includeDetails={false}
+            />
           ))}
         </View>
         <Text>{post.createdAt}</Text>

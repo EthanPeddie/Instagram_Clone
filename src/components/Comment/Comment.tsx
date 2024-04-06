@@ -11,7 +11,7 @@ interface Props {
   includeDetails: boolean;
 }
 
-const Comment = ({comment, includeDetails = false}: Props) => {
+const Comment = ({comment, includeDetails}: Props) => {
   const [isLikes, setIsLikes] = useState(false);
   const handleLiked = () => {
     setIsLikes(v => !v);

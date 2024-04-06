@@ -15,6 +15,7 @@ const HomeScreen = () => {
       }
     },
   );
+
   return (
     <FlatList
       data={posts}
