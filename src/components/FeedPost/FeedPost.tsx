@@ -23,6 +23,15 @@ const FeedPost = ({post, isVisible}: Props) => {
   const [isDescriptionExpaneded, setIsDescriptionExpaneded] = useState(false);
   const [isLikes, setIsLikes] = useState(false);
 
+  const navigation = useNavigation();
+
+  const navigateToUser = () => {
+    navigation.navigate('UserProfile', {userId: post.user?.id});
+  };
+  const navigateToComment = () => {
+    navigation.navigate('Comments', {postId: post.id});
+  };
+
   const handleExpand = () => {
     setIsDescriptionExpaneded(v => !v);
   };
@@ -45,11 +54,6 @@ const FeedPost = ({post, isVisible}: Props) => {
   } else if (post.video) {
     content = <VideoPlayer uri={post.video} paused={!isVisible} />;
   }
-  const navigation = useNavigation();
-
-  const navigateToUser = () => {
-    navigation.navigate('UserProfile', {userId: post.user?.id});
-  };
   return (
     <View>
       <View style={styles.headerContainer}>
@@ -113,7 +117,9 @@ const FeedPost = ({post, isVisible}: Props) => {
         </Text>
 
         <View style={{marginTop: 5}}>
-          <Text>View All {post.nofComments} comments</Text>
+          <Text onPress={navigateToComment}>
+            View All {post.nofComments} comments
+          </Text>
           {post.comments?.map(comment => (
             <Comment
               key={comment.id}

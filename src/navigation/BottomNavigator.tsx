@@ -4,11 +4,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import PostUploadScreen from '../screens/PostUploadScreen';
 import CommentsScreen from '../screens/CommentsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import HomeStackNavigator from './HomeStackNavigator';
 import colors from '../theme/colors';
+import ProfileStackNavigator from './ProfileStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -66,11 +68,12 @@ const ButtomTabNavigtor = () => {
       />
       <Tab.Screen
         name="MyProfile"
-        component={ProfileScreen}
+        component={ProfileStackNavigator}
         options={{
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="account-circle" size={size} color={color} />
           ),
+          headerShown: false,
         }}
       />
     </Tab.Navigator>
