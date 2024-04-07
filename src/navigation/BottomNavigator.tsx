@@ -7,12 +7,12 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import PostUploadScreen from '../screens/PostUploadScreen';
 import CommentsScreen from '../screens/CommentsScreen';
-import ProfileScreen from '../screens/ProfileScreen';
 import HomeStackNavigator from './HomeStackNavigator';
 import colors from '../theme/colors';
 import ProfileStackNavigator from './ProfileStackNavigator';
+import {BottomNavigatorParamList} from './types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomNavigatorParamList>();
 
 const ButtomTabNavigtor = () => {
   return (

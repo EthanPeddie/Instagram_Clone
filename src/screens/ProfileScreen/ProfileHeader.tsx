@@ -6,9 +6,10 @@ import colors from '../../theme/colors';
 import font from '../../theme/font';
 import Button from '../../components/Button';
 import {useNavigation} from '@react-navigation/native';
+import {ProfileNavigationProps} from '../../navigation/types';
 
 const ProfileHeader = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<ProfileNavigationProps>();
   return (
     <View style={styles.container}>
       <View style={styles.profileInfoContainer}>

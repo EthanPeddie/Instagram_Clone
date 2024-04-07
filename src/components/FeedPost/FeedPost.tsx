@@ -14,6 +14,7 @@ import colors from '../../theme/colors';
 import DoublePressable from '../DoublePressable';
 import Carousel from '../Carousel';
 import VideoPlayer from '../VideoPlayer';
+import {UserProfileNavigationProps} from '../../navigation/types';
 
 export interface Props {
   post: IPost;
@@ -23,13 +24,17 @@ const FeedPost = ({post, isVisible}: Props) => {
   const [isDescriptionExpaneded, setIsDescriptionExpaneded] = useState(false);
   const [isLikes, setIsLikes] = useState(false);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<UserProfileNavigationProps>();
 
   const navigateToUser = () => {
-    navigation.navigate('UserProfile', {userId: post.user?.id});
+    if (post.user?.id) {
+      navigation.navigate('UserProfile', {userId: post.user.id});
+    }
   };
   const navigateToComment = () => {
-    navigation.navigate('Comments', {postId: post.id});
+    if (post.id) {
+      navigation.navigate('Comments', {postId: post.id});
+    }
   };
 
   const handleExpand = () => {
