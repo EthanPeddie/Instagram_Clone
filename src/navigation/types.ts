@@ -20,6 +20,10 @@ export type BottomNavigatorParamList = {
   MyProfile: undefined;
 };
 
+export type SearchUserNavigatorParamList = {
+  Users: undefined;
+  Posts: undefined;
+};
 export type ProfileStackNavigatorParamList = {
   MyProfile: undefined;
   'Edit Profile': undefined;
@@ -34,6 +38,10 @@ export type UserProfileNavigationProps = NavigationProp<
 export type ProfileNavigationProps = NavigationProp<
   ProfileStackNavigatorParamList,
   'Edit Profile'
+>;
+
+export type SearchUserNavigationProps = NavigationProp<
+  SearchUserNavigatorParamList & HomeStackNavigatorParamList
 >;
 
 // Tab

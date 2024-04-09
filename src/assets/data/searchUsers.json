@@ -1,0 +1,26 @@
+[
+  {
+    "id": "u1",
+    "image": "https://c4.wallpaperflare.com/wallpaper/107/848/913/spiderman-ps4-spiderman-games-hd-wallpaper-preview.jpg",
+    "username": "vadimnotjustdev",
+    "name": "John"
+  },
+  {
+    "id": "u2",
+    "image": "https://4kwallpapers.com/images/walls/thumbs_2t/13003.jpeg",
+    "username": "user 1",
+    "name": "Doe"
+  },
+  {
+    "id": "u3",
+    "image": "https://w.forfun.com/fetch/a7/a786156890b460435035a0220f106a95.jpeg",
+    "username": "user 2",
+    "name": "Ethan"
+  },
+  {
+    "id": "u4",
+    "image": "https://wallpaperset.com/w/full/b/4/8/479512.jpg",
+    "username": "user 3",
+    "name": "Peddie"
+  }
+]

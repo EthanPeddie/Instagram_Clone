@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -11,6 +10,7 @@ import HomeStackNavigator from './HomeStackNavigator';
 import colors from '../theme/colors';
 import ProfileStackNavigator from './ProfileStackNavigator';
 import {BottomNavigatorParamList} from './types';
+import SearchTopTabNavigator from './SearchTopTabNavigator';
 
 const Tab = createBottomTabNavigator<BottomNavigatorParamList>();
 
@@ -33,11 +33,12 @@ const ButtomTabNavigtor = () => {
       />
       <Tab.Screen
         name="Search"
-        component={HomeScreen}
+        component={SearchTopTabNavigator}
         options={{
           tabBarIcon: ({size, color}) => (
             <MaterialIcons name="search" size={size} color={color} />
           ),
+          headerShown: false,
         }}
       />
       <Tab.Screen
