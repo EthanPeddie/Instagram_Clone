@@ -21,7 +21,7 @@ const ProfileScreen = () => {
   >();
 
   const userId = route.params?.userId;
-  console.log(userId);
+  console.warn('User id is ', userId);
 
   return (
     <FieldGridView data={users.posts} ListHeaderComponent={ProfileHeader} />
